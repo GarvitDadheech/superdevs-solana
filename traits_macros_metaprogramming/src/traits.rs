@@ -27,8 +27,12 @@ impl Shape for Rect {
 
 impl std::fmt::Display for Square {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-           write!(f, "This is a square of side {} that implemented the display trait",self.side)
-           }
+        write!(
+            f,
+            "This is a square of side {} that implemented the display trait",
+            self.side
+        )
+    }
 }
 
 pub fn traits() {
@@ -47,15 +51,14 @@ pub fn traits() {
     );
 
     // debug and display traits
-    println!("{}",sq); // will give error until unless we implement the display trait on square
+    println!("{}", sq); // will give error until unless we implement the display trait on square
 
     // We can also use the by default debug trait provided by rust we just have to do this #[derive(Debug)] for Rect
-    println!("{:?}",rec);
+    println!("{:?}", rec);
 
     // Why there is no such macro for display then? Because display is smth that is seen by end users so rust doesnt knows how you wanna
     // show data to ur end users. Debug is just for developers that's why we can use it and there is a default implementation for it.
 }
-
 
 // NOTE
 // Also before compilation all macros are expanded first then they are compiled
